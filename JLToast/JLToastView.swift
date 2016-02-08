@@ -207,4 +207,18 @@ public extension JLToastView {
         values[userInterfaceIdiom] = value
         Singleton.defaultValues[attributeName] = values
     }
+    
+    /**
+     Multiple Setting
+     
+     - parameter attributes:         attributes Dictionary
+     - parameter userInterfaceIdiom: userInterfaceIdiom
+     */
+    class func setDefaultValues(attributes attributes: [String: AnyObject], userInterfaceIdiom: UIUserInterfaceIdiom) {
+        for key in attributes.keys {
+            if let value = attributes[key] {
+                setDefaultValue(value, forAttributeName: key, userInterfaceIdiom: userInterfaceIdiom)
+            }
+        }
+    }
 }
